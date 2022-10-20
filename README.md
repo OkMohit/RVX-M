@@ -16,7 +16,7 @@ Credits : [**j-hc/revanced-magisk-module**](https://github.com/j-hc/revanced-mag
  * Star the repo :eyes:
  * Use the repo as template or fork it (if you choose the repo to be private, you won't receive updates from Magisk app)
  * Edit the patcher args in [`build.conf`](./build.conf)
- * Run this [workflow](../../actions/workflows/compile.yml) 
+ * Run this [workflow](../../actions/workflows/build.yml) 
  * Grab your modules from [releases](../../releases)
 
 **If you include microg patches in [build.conf](./build.conf), you get non-root APKs instead of Magisk modules. Apps except Youtube and Music will always be built as APKs regardless. To be able to use non-root variants of YT and Music you will need to install [Vanced MicroG](https://github.com/TeamVanced/VancedMicroG/releases).**
