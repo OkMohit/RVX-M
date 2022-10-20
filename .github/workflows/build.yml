@@ -51,7 +51,7 @@ jobs:
           yt_op=$(find . -maxdepth 1 -name "youtube-revanced-magisk-*.zip" -printf '%P')
           echo "YT_OUTPUT=$yt_op" >> $GITHUB_OUTPUT
           if [ -z "$yt_op" ]; then
-            echo "RELEASE_NAME="ReVanced"" >> $GITHUB_OUTPUT
+            echo "RELEASE_NAME="ReVanced Extended"" >> $GITHUB_OUTPUT
           else
             echo "RELEASE_NAME=$yt_op" >> $GITHUB_OUTPUT
           fi
