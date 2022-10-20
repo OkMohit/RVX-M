@@ -1,7 +1,4 @@
 # ReVanced Extended Builder
-[![Build Modules/APKs](https://github.com/OkMohit/RVX-M/actions/workflows/build.yml/badge.svg)](https://github.com/j-hc/revanced-magisk-module/actions/workflows/build.yml)
-
-
 Credits : [**j-hc/revanced-magisk-module**](https://github.com/j-hc/revanced-magisk-module) and [**inotia00**](https://github.com/inotia00) and [**ReVanced**](https://github.com/revanced)
 
 ## Features
