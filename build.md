@@ -8,7 +8,6 @@ YouTube
 
 ※ refer previous [changelog](https://github.com/inotia00/revanced-patches/releases/tag/v2.83.2)
   
-TikTok: 26.6.2  
 YouTube: 17.40.41  
 
 Use microg for non root YT apks  
