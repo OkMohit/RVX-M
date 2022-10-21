@@ -8,6 +8,6 @@ YouTube
 
 ※ refer previous [changelog](https://github.com/inotia00/revanced-patches/releases/tag/v2.83.2)
   
-YouTube: 17.40.41  
+YouTube: 17.42.33  
 
 Use microg for non root YT apks  
