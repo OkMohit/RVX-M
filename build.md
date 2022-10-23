@@ -13,7 +13,7 @@ YouTube
 -  settings moved from Extended settings to Layout settings
 - fix:  patch is missing when trying to build from rvx-builder
 - fix: App crashes when trying to build in a specific version
-- fix: default video quality settings sometimes not working
+- fix: remember video quality settings sometimes not working
 - fix: swipe gestures stutter
 - Crowdin Translation Update
 , , , , , , , 
