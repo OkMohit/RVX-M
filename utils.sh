@@ -128,14 +128,6 @@ patch_apk() {
 	java -jar "$RV_CLI_JAR" --rip-lib x86 --rip-lib x86_64 --rip-lib armeabi-v7a -c -a "$stock_input" -o "$patched_apk" -b "$RV_PATCHES_JAR" --keystore=ks.keystore $patcher_args
 }
 
-zip_module() {
-	local patched_apk=$1 module_name=$2 stock_apk=$3 pkg_name=$4
-	cp -f "$patched_apk" "${MODULE_TEMPLATE_DIR}/base.apk"
-	cp -f "$stock_apk" "${MODULE_TEMPLATE_DIR}/${pkg_name}.apk"
-	cd "$MODULE_TEMPLATE_DIR" || abort "Module template dir not found"
-	zip -"$COMPRESSION_LEVEL" -FSr "../${BUILD_DIR}/${module_name}" .
-	cd ..
-}
 
 select_ver() {
 	local last_ver pkg_name=$1 apkmirror_category=$2 select_ver_experimental=$3
