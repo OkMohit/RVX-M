@@ -285,7 +285,7 @@ build_youtube() {
 	youtube_args[mode]="$YOUTUBE_MODE"
 	youtube_args[microg_patch]="microg-support"
 	youtube_args[pkg_name]="com.google.android.youtube"
-	youtube_args[rip_all_libs]=true
+	youtube_args[rip_all_libs]=false
 	youtube_args[apkmirror_dlurl]="google-inc/youtube/youtube"
 	youtube_args[regexp]="APK</span>[^@]*@\([^#]*\)"
 	youtube_args[module_prop_name]="ytrv-magisk"
