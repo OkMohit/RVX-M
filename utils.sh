@@ -191,6 +191,48 @@ build_rv() {
 
 
 
+
+		local stock_apk="${TEMP_DIR}/${args[app_name],,}-stock-v${version}-${args[arch]}.apk"
+		local apk_output="${BUILD_DIR}/${args[app_name],,}-revanced-v${version}-${args[arch]}.apk"
+		if [ "${args[microg_patch]:-}" ]; then
+			local patched_apk="${TEMP_DIR}/${args[app_name],,}-revanced-v${version}-${args[arch]}-${build_mode}.apk"
+		else
+			local patched_apk="${TEMP_DIR}/${args[app_name],,}-revanced-v${version}-${args[arch]}.apk"
+		fi
+		if [ ! -f "$stock_apk" ]; then
+			if [ $dl_from = apkmirror ]; then
+				echo "Downloading from APKMirror"
+				if ! dl_apkmirror "https://www.apkmirror.com/apk/${args[apkmirror_dlurl]}-${version//./-}-release/" \
+					"${args[regexp]}" \
+					"$stock_apk"; then
+					echo "ERROR: Could not find version '${version}' for ${args[app_name]}"
+					return 1
+				fi
+			elif [ $dl_from = uptodown ]; then
+				echo "Downloading the latest version from Uptodown"
+				if ! dl_uptodown "${args[app_name],,}" "$stock_apk"; then
+					echo "ERROR: Could not download ${args[app_name]}"
+					return 1
+				fi
+			else
+				abort "UNREACHABLE $LINENO"
+			fi
+		fi
+
+		if [ "${args[arch]}" = "all" ]; then
+			log "${args[app_name]}: ${version}"
+		else
+			log "${args[app_name]} (${args[arch]}): ${version}"
+		fi
+
+		if [ ! -f "$patched_apk" ] || [ "${args[microg_patch]:-}" ]; then
+			patch_apk "$stock_apk" "$patched_apk" "$patcher_args"
+		fi
+		if [ ! -f "$patched_apk" ]; then
+			echo "BUILD FAIL"
+			return
+		fi
+
 		if [ "$build_mode" = apk ]; then
 			cp -f "$patched_apk" "${apk_output}"
 			echo "Built ${args[app_name]} (${args[arch]}) (non-root): '${apk_output}'"
