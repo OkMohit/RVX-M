@@ -236,7 +236,7 @@ build_rv() {
 		if [ "$build_mode" = apk ]; then
 			cp -f "$patched_apk" "${apk_output}"
 			echo "Built ${args[app_name]} (${args[arch]}) (non-root): '${apk_output}'"
-			continue
+			return
 		fi
 
 
