@@ -160,8 +160,8 @@ build_rv() {
 
 	if [ "$mode_arg" = none ]; then
 		return
-	elif [ "$mode_arg" = module ]; then
-		build_mode_arr=(module)
+
+
 	elif [ "$mode_arg" = apk ]; then
 		build_mode_arr=(apk)
 	elif [ "$mode_arg" = both ]; then
