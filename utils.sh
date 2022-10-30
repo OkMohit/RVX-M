@@ -245,20 +245,7 @@ build_rv() {
 			continue
 		fi
 
-		uninstall_sh "${args[pkg_name]}"
-		service_sh "${args[pkg_name]}"
-		postfsdata_sh "${args[pkg_name]}"
-		customize_sh "${args[pkg_name]}" "${version}"
-		module_prop "${args[module_prop_name]}" \
-			"${args[app_name]} ReVanced" \
-			"${version}" \
-			"${args[app_name]} ReVanced Magisk module" \
-			"https://raw.githubusercontent.com/${GITHUB_REPOSITORY}/update/${args[module_update_json]}"
 
-		local module_output="${args[app_name],,}-revanced-magisk-v${version}-${args[arch]}.zip"
-		zip_module "$patched_apk" "$module_output" "$stock_apk" "${args[pkg_name]}"
-
-		echo "Built ${args[app_name]} (${args[arch]}) (root): '${BUILD_DIR}/${module_output}'"
 	done
 }
 
