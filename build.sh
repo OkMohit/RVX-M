@@ -29,13 +29,7 @@ fi
 : >build.md
 mkdir -p "$BUILD_DIR" "$TEMP_DIR"
 
-if [ "$UPDATE_PREBUILTS" = true ]; then get_prebuilts; else set_prebuilts; fi
-reset_template
-get_cmpr
 
-if ((COMPRESSION_LEVEL > 9)) || ((COMPRESSION_LEVEL < 1)); then
-	abort "COMPRESSION_LEVEL must be between 1 and 9"
-fi
 
 build_youtube
 build_music $ARM64_V8A
@@ -46,18 +40,4 @@ build_tiktok
 build_spotify
 build_warn_wetter
 
-if [ "$BUILD_MINDETACH_MODULE" = true ]; then
-	echo "Building mindetach module"
-	cd mindetach-magisk/mindetach/
-	: >detach.txt
-	if [ "${YOUTUBE_MODE%/*}" != none ]; then echo "com.google.android.youtube" >>detach.txt; fi
-	if [ "${MUSIC_ARM64_V8A_MODE%/*}" != none ] || [ "${MUSIC_ARM_V7A_MODE%/*}" != none ]; then
-		echo "com.google.android.apps.youtube.music" >>detach.txt
-	fi
-	zip -r ../../build/mindetach.zip .
-	cd ../../
-fi
-log "\nUse microg for non root YT apks"
-
-reset_template
 echo "Done"
