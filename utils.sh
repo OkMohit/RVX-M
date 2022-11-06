@@ -122,10 +122,10 @@ dl_uptodown() {
 
 patch_apk() {
 	local stock_input=$1 patched_apk=$2 patcher_args=$3
-	echo "java -jar $RV_CLI_JAR --rip-lib x86 --rip-lib x86_64 --rip-lib armeabi-v7a -i website -c -a $stock_input -o $patched_apk -b $RV_PATCHES_JAR --keystore=ks.keystore $patcher_args"
+	echo "java -jar $RV_CLI_JAR --rip-lib x86 --rip-lib x86_64 --rip-lib armeabi-v7a -i website -i custom-package-name -c -a $stock_input -o $patched_apk -b $RV_PATCHES_JAR --keystore=ks.keystore $patcher_args"
 	# shellcheck disable=SC2086
 	# --rip-lib is only available in my own revanced-cli builds
-	java -jar "$RV_CLI_JAR" --rip-lib x86 --rip-lib x86_64 --rip-lib armeabi-v7a -i website -c -a "$stock_input" -o "$patched_apk" -b "$RV_PATCHES_JAR" --keystore=ks.keystore $patcher_args
+	java -jar "$RV_CLI_JAR" --rip-lib x86 --rip-lib x86_64 --rip-lib armeabi-v7a -i website -i custom-package-name -c -a "$stock_input" -o "$patched_apk" -b "$RV_PATCHES_JAR" --keystore=ks.keystore $patcher_args
 }
 
 
