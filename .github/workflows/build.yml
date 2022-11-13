@@ -82,4 +82,5 @@ jobs:
   # uses: GokulDas027/TelegramBridge@684649887d1b1b260e23f5afe66621e4c9f57ca0
         uses: GokulDas027/TelegramBridge@1.2
         with:
+          chat: 614165619
           token: 5726277192:AAELe0gJ5Ne2kEgfW8DKJDIcHXKMnuVwP0o
