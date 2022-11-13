@@ -3,7 +3,7 @@ on:
   workflow_call:
     secrets:
       TELEGRAM_TOKEN:
-        description: '5726277192:AAELe0gJ5Ne2kEgfW8DKJDIcHXKMnuVwP0o'
+        description: 'Telegram Bot Token'
         required: true
       TELEGRAM_TO:
         description: 'Telegram Chat ID'
@@ -77,10 +77,3 @@ jobs:
           commit_message: Bump version ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
           
           
-      - name: TelegramBridge
-  # You may pin to the exact commit or the version.
-  # uses: GokulDas027/TelegramBridge@684649887d1b1b260e23f5afe66621e4c9f57ca0
-        uses: GokulDas027/TelegramBridge@1.2
-        with:
-          chat: 614165619
-          token: 5726277192:AAELe0gJ5Ne2kEgfW8DKJDIcHXKMnuVwP0o
