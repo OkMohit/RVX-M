@@ -75,11 +75,10 @@ jobs:
           skip_checkout: true
           file_pattern: build.md *.json
           commit_message: Bump version ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
+      
       - name: TelegramBridge
-  # You may pin to the exact commit or the version.
-  # uses: GokulDas027/TelegramBridge@684649887d1b1b260e23f5afe66621e4c9f57ca0
-  uses: GokulDas027/TelegramBridge@1.2
-  with:
+      uses: GokulDas027/TelegramBridge@1.2
+      with:
     # Chat to send: chat id or @channel_name/add to secrets
     chat: 
     # Telegram Bot token/add to secrets
