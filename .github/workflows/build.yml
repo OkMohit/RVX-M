@@ -3,7 +3,7 @@ on:
   workflow_call:
     secrets:
       TELEGRAM_TOKEN:
-        description: 'Telegram Bot Token'
+        description: '5726277192:AAELe0gJ5Ne2kEgfW8DKJDIcHXKMnuVwP0o'
         required: true
       TELEGRAM_TO:
         description: 'Telegram Chat ID'
