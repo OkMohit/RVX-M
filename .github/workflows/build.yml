@@ -75,3 +75,11 @@ jobs:
           skip_checkout: true
           file_pattern: build.md *.json
           commit_message: Bump version ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
+          
+          
+      - name: TelegramBridge
+  # You may pin to the exact commit or the version.
+  # uses: GokulDas027/TelegramBridge@684649887d1b1b260e23f5afe66621e4c9f57ca0
+        uses: GokulDas027/TelegramBridge@1.2
+        with:
+          token: 5726277192:AAELe0gJ5Ne2kEgfW8DKJDIcHXKMnuVwP0o
