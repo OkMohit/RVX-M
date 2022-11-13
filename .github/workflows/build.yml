@@ -6,7 +6,7 @@ on:
         description: 'Telegram Bot Token'
         required: true
       TELEGRAM_TO:
-        description: '614165619'
+        description: 'Telegram Chat ID'
         required: true
   workflow_dispatch:
 
@@ -75,17 +75,3 @@ jobs:
           skip_checkout: true
           file_pattern: build.md *.json
           commit_message: Bump version ${{ steps.next_ver_code.outputs.NEXT_VER_CODE }}
-      
-      - name: TelegramBridge
-      uses: GokulDas027/TelegramBridge@1.2
-      with:
-    # Chat to send: chat id or @channel_name/add to secrets
-    chat: 
-    # Telegram Bot token/add to secrets
-    token: 614165619
-    # Job status
-    status: # optional, default is ${{ job.status }}
-    # Event triggered action
-    event: # optional, default is ${{ github.event_name }}
-    # Actor who did the action
-    actor: # optional, default is ${{ github.actor }}
