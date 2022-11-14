@@ -290,7 +290,7 @@ build_rv1() {
 		if [ "${args[microg_patch]:-}" ]; then
 			if [ "$build_mode" = module ]; then
 				patcher_args1="$patcher_args1 -e ${args[microg_patch]}"
-			elif [[ "${args[patcher_args]}" = *"${args[microg_patch]}"* ]]; then
+			elif [[ "${args[patcher_args1]}" = *"${args[microg_patch]}"* ]]; then
 				abort "UNREACHABLE $LINENO"
 			fi
 		fi
@@ -392,7 +392,7 @@ build_youtube() {
 
 build_youtube1() {
 	declare -A youtube_args
-	youtube_args[app_name]="YouTube"
+	youtube_args[app_name]="YouTube 2"
 	youtube_args[patcher_args1]="-m ${RV_INTEGRATIONS_APK} $(excluded_patches "${YOUTUBE_EXCLUDED_PATCHES}")"
 	youtube_args[mode]="$YOUTUBE_MODE"
 	youtube_args[microg_patch]="microg-support"
