@@ -402,7 +402,7 @@ build_youtube() {
 build_youtube1() {
 	declare -A youtube_args
 	youtube_args[app_name]="YouTube Monet"
-	youtube_args[patcher_args1]="-m ${RV_INTEGRATIONS_APK} $(included_patches "${YOUTUBE_INCLUDED_PATCHES}")"
+	youtube_args[patcher_args1]="-m ${RV_INTEGRATIONS_APK} $(included_patches "${YOUTUBE_INCLUDED_PATCHES} $(excluded_patches "${YOUTUBE_EXCLUDED_PATCHES}")"
 	youtube_args[mode]="$YOUTUBE_MODE"
 	youtube_args[microg_patch]="microg-support"
 	youtube_args[pkg_name]="com.google.android.youtube"
