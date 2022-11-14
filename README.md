@@ -2,8 +2,8 @@
 [![Build Modules](https://github.com/j-hc/revanced-magisk-module/actions/workflows/build.yml/badge.svg)](https://github.com/OkMohit/RVX-M/blob/main/.github/workflows/build.yml)
 
 ## Features
- * Can build 2 Non-root at single Workflow
- * Cleans APKs from unneeded libs to make them smaller (by default armv8)
+ * Can build 2 Non-root RVX apk's at single Workflow (currently set to Amoled + Monet)
+ * Removed all unneeded libs to make them smaller (by default armv8)
  * Fully open-source, every binary or APK is compiled without human intervention
 
 ## To include/exclude patches
