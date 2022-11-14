@@ -33,6 +33,7 @@ if [ "$UPDATE_PREBUILTS" = true ]; then get_prebuilts; else set_prebuilts; fi
 
 
 build_youtube
+build_youtube1
 build_music $ARM64_V8A
 build_music $ARM_V7A
 build_twitter
