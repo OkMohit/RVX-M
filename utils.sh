@@ -401,7 +401,7 @@ build_youtube() {
 
 build_youtube1() {
 	declare -A youtube_args
-	youtube_args[app_name]="YouTube 2"
+	youtube_args[app_name]="YouTube Monet"
 	youtube_args[patcher_args1]="-m ${RV_INTEGRATIONS_APK} $(included_patches "${YOUTUBE_INCLUDED_PATCHES}")"
 	youtube_args[mode]="$YOUTUBE_MODE"
 	youtube_args[microg_patch]="microg-support"
