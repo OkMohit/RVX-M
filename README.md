@@ -1,17 +1,15 @@
-# ReVanced Magisk Module
+# ReVanced Extended Builder 
 [![Build Modules](https://github.com/j-hc/revanced-magisk-module/actions/workflows/build.yml/badge.svg)](https://github.com/OkMohit/RVX-M/blob/main/.github/workflows/build.yml)
 
 ## Features
- * Can build Non-root APK
- * Updated daily with the latest versions of apps and patches in accordance with your configuration
+ * Can build 2 Non-root at single Workflow
  * Cleans APKs from unneeded libs to make them smaller (by default armv8)
  * Fully open-source, every binary or APK is compiled without human intervention
 
 ## To include/exclude patches
-[**See the list of patches**](https://github.com/revanced/revanced-patches#-list-of-available-patches)
+[**List of Patches Available**](https://github.com/inotia00/revanced-patches#-list-of-available-patches)
 
- * Star the repo :eyes:
- * Use the repo as template or fork it (if you choose the repo to be private, you won't receive updates from Magisk app)
+ * Use the repo as template or fork it.
  * Edit the patcher args in [`build.conf`](./build.conf)
  * Run the [workflow](../../actions/workflows/build.yml)
  * Grab your apk from [releases](../../releases)
