@@ -259,6 +259,15 @@ excluded_patches() {
 	fi
 }
 
+included_patches() {
+	if [ "$1" ]; then
+		echo "$1" | tr -d '\t\r' | tr ' ' '\n' | grep -v '^$' | sed 's/^/-i /' | paste -sd " " -
+	else
+		echo ""
+	fi
+}
+
+
 
 # No.2 
 
@@ -393,7 +402,7 @@ build_youtube() {
 build_youtube1() {
 	declare -A youtube_args
 	youtube_args[app_name]="YouTube 2"
-	youtube_args[patcher_args1]="-m ${RV_INTEGRATIONS_APK} $(excluded_patches "${YOUTUBE_EXCLUDED_PATCHES}")"
+	youtube_args[patcher_args1]="-m ${RV_INTEGRATIONS_APK} $(included_patches "${YOUTUBE_INCLUDED_PATCHES}")"
 	youtube_args[mode]="$YOUTUBE_MODE"
 	youtube_args[microg_patch]="microg-support"
 	youtube_args[pkg_name]="com.google.android.youtube"
