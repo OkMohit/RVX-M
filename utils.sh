@@ -129,11 +129,11 @@ patch_apk() {
 }
 
 patch_apk1() {
-	local stock_input=$1 patched_apk=$2 patcher_args=$3
-	echo "java -jar $RV_CLI_JAR --rip-lib x86 --rip-lib x86_64 --rip-lib armeabi-v7a -i website -i materialyou -c -a $stock_input -o $patched_apk -b $RV_PATCHES_JAR --keystore=ks.keystore $patcher_args"
+	local stock_input=$4 patched_apk=$5 patcher_args1=$6
+	echo "java -jar $RV_CLI_JAR --rip-lib x86 --rip-lib x86_64 --rip-lib armeabi-v7a -i website -i materialyou -c -a $stock_input -o $patched_apk -b $RV_PATCHES_JAR --keystore=ks.keystore $patcher_args1"
 	# shellcheck disable=SC2086
 	# --rip-lib is only available in my own revanced-cli builds
-	java -jar "$RV_CLI_JAR" --rip-lib x86 --rip-lib x86_64 --rip-lib armeabi-v7a -i website -i materialyou -c -a "$stock_input" -o "$patched_apk" -b "$RV_PATCHES_JAR" --keystore=ks.keystore $patcher_args
+	java -jar "$RV_CLI_JAR" --rip-lib x86 --rip-lib x86_64 --rip-lib armeabi-v7a -i website -i materialyou -c -a "$stock_input" -o "$patched_apk" -b "$RV_PATCHES_JAR" --keystore=ks.keystore $patcher_args1
 }
 
 
@@ -264,7 +264,7 @@ excluded_patches() {
 
 build_rv1() {
 	local -n args=$1
-	local version patcher_args dl_from build_mode_arr
+	local version patcher_args1 dl_from build_mode_arr
 	local mode_arg=${args[mode]%/*} version_mode=${args[mode]#*/}
 	args[arch]=${args[arch]:-all}
 	if [ "${args[apkmirror_dlurl]:-}" ] && [ "${args[regexp]:-}" ]; then dl_from=apkmirror; else dl_from=uptodown; fi
@@ -283,13 +283,13 @@ build_rv1() {
 		return
 	fi
 	for build_mode in "${build_mode_arr[@]}"; do
-		patcher_args="${args[patcher_args]:-}"
+		patcher_args1="${args[patcher_args1]:-}"
 		printf "Building '%s' (%s) in " "${args[app_name]}" "${args[arch]}"
 		if [ "$build_mode" = module ]; then echo "'module' mode"; else echo "'APK' mode"; fi
 
 		if [ "${args[microg_patch]:-}" ]; then
 			if [ "$build_mode" = module ]; then
-				patcher_args="$patcher_args -e ${args[microg_patch]}"
+				patcher_args1="$patcher_args1 -e ${args[microg_patch]}"
 			elif [[ "${args[patcher_args]}" = *"${args[microg_patch]}"* ]]; then
 				abort "UNREACHABLE $LINENO"
 			fi
@@ -302,10 +302,10 @@ build_rv1() {
 			elif [ $dl_from = uptodown ]; then
 				version=$(get_uptodown_ver "${args[app_name],,}")
 			fi
-			patcher_args="$patcher_args --experimental"
+			patcher_args1="$patcher_args1 --experimental"
 		else
 			version=$version_mode
-			patcher_args="$patcher_args --experimental"
+			patcher_args1="$patcher_args1 --experimental"
 		fi
 		echo "Choosing version '${version}'"
 
@@ -346,7 +346,7 @@ build_rv1() {
 		fi
 
 		if [ ! -f "$patched_apk" ] || [ "${args[microg_patch]:-}" ]; then
-			patch_apk "$stock_apk" "$patched_apk" "$patcher_args"
+			patch_apk "$stock_apk" "$patched_apk" "$patcher_args1"
 		fi
 		if [ ! -f "$patched_apk" ]; then
 			echo "BUILD FAIL"
@@ -393,7 +393,7 @@ build_youtube() {
 build_youtube1() {
 	declare -A youtube_args
 	youtube_args[app_name]="YouTube"
-	youtube_args[patcher_args]="-m ${RV_INTEGRATIONS_APK} $(excluded_patches "${YOUTUBE_EXCLUDED_PATCHES}")"
+	youtube_args[patcher_args1]="-m ${RV_INTEGRATIONS_APK} $(excluded_patches "${YOUTUBE_EXCLUDED_PATCHES}")"
 	youtube_args[mode]="$YOUTUBE_MODE"
 	youtube_args[microg_patch]="microg-support"
 	youtube_args[pkg_name]="com.google.android.youtube"
