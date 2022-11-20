@@ -178,9 +178,9 @@ build_rv() {
 		if [ "${args[microg_patch]:-}" ]; then
 			if [ "$build_mode" = module ]; then
 				patcher_args="$patcher_args -e ${args[microg_patch]}"
-			elif [[ "${args[patcher_args]}" = *"${args[microg_patch]}"* ]]; then
-				abort "UNREACHABLE $LINENO"
-			fi
+			
+
+
 		fi
 		if [ "$version_mode" = auto ] && [ $dl_from = apkmirror ]; then
 			version=$(select_ver "${args[pkg_name]}" "${args[apkmirror_dlurl]##*/}" false)
