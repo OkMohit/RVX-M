@@ -298,7 +298,7 @@ build_rv1() {
 		printf "Building '%s' (%s) in " "${args[app_name]}" "${args[arch]}"
 		if [ "$build_mode" = module ]; then echo "'module' mode"; else echo "'APK' mode"; fi
 
-		if [ "${args[microg_patch]:-}" ]; then
+		if [ "${args[microg_patch1]:-}" ]; then
 			if [ "$build_mode" = module ]; then
 				patcher_args1="$patcher_args1 -e ${args[microg_patch]}"
 			elif [[ "${args[patcher_args1]}" = *"${args[microg_patch]}"* ]]; then
