@@ -15,13 +15,3 @@
  * Grab your apk from [releases](../../releases)
 
 To be able to use non-root variants of YT and Music you will need to install [Vanced MicroG](https://github.com/TeamVanced/VancedMicroG/releases).**
-
-# Building Locally
-Make sure you have JDK 17 installed. Then run:
-
-```console
-$ git clone --recurse-submodules https://github.com/j-hc/revanced-magisk-module
-$ cd revanced-magisk-module
-$ ./build.sh build
-```
-
