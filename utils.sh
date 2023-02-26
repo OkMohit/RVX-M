@@ -125,7 +125,7 @@ patch_apk() {
 	echo "java -jar $RV_CLI_JAR --rip-lib armeabi-v7a --rip-lib x86_64 --rip-lib x86 -c -a $stock_input -o $patched_apk -b $RV_PATCHES_JAR --keystore=ks.keystore $patcher_args"
 	# shellcheck disable=SC2086
 	# --rip-lib is only available in my own revanced-cli builds
-	java -jar "$RV_CLI_JAR" -c -a "$stock_input" -o "$patched_apk" -b "$RV_PATCHES_JAR" --keystore=ks.keystore $patcher_args
+	java -jar "$RV_CLI_JAR" --rip-lib armeabi-v7a --rip-lib x86_64 --rip-lib x86 -c -a "$stock_input" -o "$patched_apk" -b "$RV_PATCHES_JAR" --keystore=ks.keystore $patcher_args
 }
 
 patch_apk1() {
